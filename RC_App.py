@@ -137,12 +137,12 @@ def page_home():
         2. "Gone Girl" by Gillian Flynn (Thriller, Mystery) - This gripping psychological thriller follows the sudden disappearance of Amy Dunne and the subsequent investigation into her vanishing. Told from alternating perspectives, this novel is filled with twists and turns that will keep you guessing until the very end. The complex characters and layered storytelling make "Gone Girl" a compelling read for thriller enthusiasts.
 """
         
-        st.write(prompt)
+        #st.write(prompt)
         get_list = st.button("generate")
 
     if get_list and Top_n and selected_genre:
         assistant_output, message_list = get_assistant_response(prompt, message_list)
-        #st.write(assistant_output)
+        st.write(assistant_output)
         new_books = extract_info(assistant_output)
         #print(f"Assistant Output: {assistant_output}")
         #print(f"Extracted Book Info: {new_books}")
