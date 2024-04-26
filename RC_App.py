@@ -7,7 +7,7 @@ import datetime
 
 load_dotenv()
 
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 if "book" not in st.session_state:
     st.session_state.book = []
