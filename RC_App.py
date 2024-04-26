@@ -142,10 +142,10 @@ def page_home():
 
     if get_list and Top_n and selected_genre:
         assistant_output, message_list = get_assistant_response(prompt, message_list)
-        st.write(assistant_output)
+        #st.write(assistant_output)
         new_books = extract_info(assistant_output)
-        print(f"Assistant Output: {assistant_output}")
-        print(f"Extracted Book Info: {new_books}")
+        #print(f"Assistant Output: {assistant_output}")
+        #print(f"Extracted Book Info: {new_books}")
         st.session_state.book += new_books  # Append new data to existing list
         update_book_list_df()
 
