@@ -184,8 +184,6 @@ def instruction_page():
 
 The Power of AI:  We leverage cutting-edge Artificial Intelligence to personalize book recommendations, taking the guesswork out of your literary journey.
 
-Our Expertise:  Our AI is trained on massive datasets of books, user preferences, and reading trends. This allows us to understand your tastes and uncover hidden gems that resonate with you.
-
 Who We Serve:  Reader Compass caters to readers of all backgrounds and interests. Whether you're a seasoned bibliophile or a curious student, we help you discover books that fuel your imagination and expand your horizons.
 
 Our Promise:  We believe that reading should be an enriching and enjoyable experience.  With Reader Compass, you can say goodbye to buyer's remorse and wasted time browsing.
