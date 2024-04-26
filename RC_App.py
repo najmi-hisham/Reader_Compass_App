@@ -178,7 +178,9 @@ def instruction_page():
     col1, col2, col3 = st.columns(3)
 
     with col2:
+        st.image(r"logo.jpg")
         st.title("About us")
+    
 
     text = """"Our Mission:  At Reader Compass, we're passionate about igniting a love of reading and empowering every reader to find their perfect match.
 
