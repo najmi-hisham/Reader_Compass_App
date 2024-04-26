@@ -36,7 +36,7 @@ def get_assistant_response(user_input, message_list):
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo-1106",
         messages=message_list,
-        max_tokens=500,  # Adjust the maximum number of tokens based on your needs
+        max_tokens=1000,  # Adjust the maximum number of tokens based on your needs
     )
 
     assistant_output = response.choices[0].message.content
@@ -120,12 +120,13 @@ def page_home():
         prompt+= f"Expectation of the books: {expect}.\n\n"
 
         if st.session_state.get("book"):
+            prompt+=f"Please exclude books below:\n"
             existing_book_titles = [book["TITLE"] for book in st.session_state.book if book]  # Access titles only if book exists in the list
             for title in existing_book_titles:
-                prompt += f"Please exclude books in below \n- {title}\n"
+                prompt += f"- {title}\n"
     # Display book titles or use the data
         else:
-            st.write("There are no recommended books yet. Please generate some recommendations!")
+            prompt+=""
 
         prompt+= f"""Please give me in point form with short description. Like below:\n1. [title] [major genre (max 3)] - [description] \n Noted: Please follow the format above
         For example below is the true format:
@@ -177,7 +178,21 @@ def instruction_page():
     col1, col2, col3 = st.columns(3)
 
     with col2:
-        st.write("We will show you how to use this app")
+        st.write("About us")
+
+    text = """"Our Mission:  At Reader Compass, we're passionate about igniting a love of reading and empowering every reader to find their perfect match.
+
+The Power of AI:  We leverage cutting-edge Artificial Intelligence to personalize book recommendations, taking the guesswork out of your literary journey.
+
+Our Expertise:  Our AI is trained on massive datasets of books, user preferences, and reading trends. This allows us to understand your tastes and uncover hidden gems that resonate with you.
+
+Who We Serve:  Reader Compass caters to readers of all backgrounds and interests. Whether you're a seasoned bibliophile or a curious student, we help you discover books that fuel your imagination and expand your horizons.
+
+Our Promise:  We believe that reading should be an enriching and enjoyable experience.  With Reader Compass, you can say goodbye to buyer's remorse and wasted time browsing.
+
+Join the Journey:  Let us be your guide on the path to literary discovery.  Download Reader Compass today and unlock a world of personalized book recommendations!"""
+
+    st.write(text)
 
 def main():
     st.sidebar.title('Navigation')
