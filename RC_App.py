@@ -202,7 +202,7 @@ def main():
         page_home()
     elif page == 'My Book List':
         display_page()
-    elif page == "How to use":
+    elif page == "About Us":
         instruction_page()
 
 if __name__ == '__main__':
