@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import re
 import pandas as pd
 import datetime
+import pytz
 
 load_dotenv()
 
@@ -18,8 +19,9 @@ def extract_info(text):
 
     for match in matches:
         title, author, genre, description = match[1], match[2], match[3], match[4]
-        # Extract genre information within brackets
-        current_time = datetime.datetime.now().strftime("%H:%M:%S")  # Get current time
+        
+        my_timezone = pytz.timezone("Asia/Kuala_Lumpur")
+        current_time = datetime.datetime.now(my_timezone).strftime("%H:%M:%S")  # Get current time
         titles_descriptions.append({
         "TITLE": title,
         "AUTHOR": author if author else "NA",
