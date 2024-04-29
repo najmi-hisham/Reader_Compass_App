@@ -196,6 +196,16 @@ Join the Journey:  Let us be your guide on the path to literary discovery.  Down
 
     st.write(text)
 
+    col4,col5 = st.columns(2)
+
+    st.markdown("How to use")
+
+    with col4:
+        st.image(r"1.jpg")
+
+    with col5:
+        st.image(r"2.jpg")
+
 def main():
     st.sidebar.title('Navigation')
     page = st.sidebar.radio('Go to', ['Home', 'My Book List',"About Us"])
