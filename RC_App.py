@@ -196,9 +196,9 @@ Join the Journey:  Let us be your guide on the path to literary discovery.  Down
 
     st.write(text)
 
-    col4,col5 = st.columns(2)
+    st.title("How to use")
 
-    st.markdown("How to use")
+    col4,col5 = st.columns(2)
 
     with col4:
         st.image(r"1.jpg")
