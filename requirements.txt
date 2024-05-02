@@ -1,4 +1,8 @@
 pandas  
 streamlit
 openai
+langchain
+langchain_community
+langchain_core
+langchain_openai
 python-dotenv
