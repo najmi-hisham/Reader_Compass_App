@@ -179,71 +179,6 @@ def display_page():
         for idx, item in enumerate(st.session_state['book']):
             st.button(f"Delete {item['TITLE']}", key=idx, on_click=handle_delete, args=(idx,))
 
-def chatbot():
-    from langchain_core.messages import AIMessage, HumanMessage
-    from langchain_openai import ChatOpenAI
-    from langchain_core.output_parsers import StrOutputParser
-    from langchain_core.prompts import ChatPromptTemplate
-    # app config
-    st.set_page_config(page_title="Streamlit Chatbot", page_icon="🤖")
-    st.title("Chatbot")
-
-    def get_response(user_query, chat_history):
-        template = """
-        You are a helpful assistant that help user about book.
-        Below is the list of book that the user might ask
-        1. Percy Jackson
-        2. Harry Potter 
-        Answer the following questions considering the history of the conversation:
-
-        Chat history: {chat_history}
-
-        User question: {user_question}
-        """
-
-        prompt = ChatPromptTemplate.from_template(template)
-
-        llm = ChatOpenAI()
-            
-        chain = prompt | llm | StrOutputParser()
-        
-        return chain.stream({
-            "chat_history": chat_history,
-            "user_question": user_query,
-        })
-
-    # session state
-    if "chat_history" not in st.session_state:
-        st.session_state.chat_history = [
-            AIMessage(content="""Hello, I am a bot that specialize in books. I can help you about books especially below
-                    1. Percy Jackson
-                    2. Harry Potter
-                    How can I help you?"""),
-        ]
-
-    if st.checkbox("show chat"): 
-    # conversation
-        for message in st.session_state.chat_history:
-            if isinstance(message, AIMessage):
-                with st.chat_message("Animal"):
-                    st.write(message.content)
-            elif isinstance(message, HumanMessage):
-                with st.chat_message("Human"):
-                    st.write(message.content)
-    # user input
-    user_query = st.chat_input("Type your message here...")
-    if user_query is not None and user_query != "":
-        st.session_state.chat_history.append(HumanMessage(content=user_query))
-
-        with st.chat_message("Human"):
-            st.markdown(user_query)
-
-        with st.chat_message("AI"):
-            response = st.write_stream(get_response(user_query, st.session_state.chat_history))
-            print(f"{type(response)} : {response}")
-
-        st.session_state.chat_history.append(AIMessage(content=response))
-
 
 def instruction_page():
     col1, col2, col3 = st.columns(3)
@@ -283,8 +218,6 @@ def main():
         page_home()
     elif page == 'My Book List':
         display_page()
-    elif page == "Chatbot":
-        chatbot()
     elif page == "About Us":
         instruction_page()
 
