@@ -212,7 +212,7 @@ Join the Journey:  Let us be your guide on the path to literary discovery.  Down
 
 def main():
     st.sidebar.title('Navigation')
-    page = st.sidebar.radio('Go to', ['Home', 'My Book List',"About Us","Chatbot"])
+    page = st.sidebar.radio('Go to', ['Home', 'My Book List',"About Us"])
 
     if page == 'Home':
         page_home()
