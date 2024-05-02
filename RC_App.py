@@ -180,7 +180,6 @@ def display_page():
             st.button(f"Delete {item['TITLE']}", key=idx, on_click=handle_delete, args=(idx,))
 
 def chatbot():
-    import streamlit as st
     from langchain_core.messages import AIMessage, HumanMessage
     from langchain_openai import ChatOpenAI
     from langchain_core.output_parsers import StrOutputParser
@@ -190,7 +189,6 @@ def chatbot():
     st.title("Chatbot")
 
     def get_response(user_query, chat_history):
-
         template = """
         You are a helpful assistant that help user about book.
         Below is the list of book that the user might ask
