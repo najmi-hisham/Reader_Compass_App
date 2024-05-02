@@ -288,6 +288,8 @@ def main():
         page_home()
     elif page == 'My Book List':
         display_page()
+    elif page == "Chatbot":
+        chatbot()
     elif page == "About Us":
         instruction_page()
 
