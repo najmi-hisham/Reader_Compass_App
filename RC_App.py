@@ -53,6 +53,8 @@ def page_home():
     assistant_output = ""  # Initialize assistant_output
     st.title("READER COMPASS 📖")
 
+
+    st.write("If you are using phone please press button like below to open slidebar and key in inputs")
     st.image(r"start.png")    
 
     message_list = [{"role": "system", "content": "You are a helpful and friendly bot that recommended people with book that relevant to their interest. You also give them advice about books after recommending it"}]
